@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea  id="box" cols="70" rows="30" oninput="text()" ></textarea>\
+   <br>
+    <b> Word-Count:<span id="number" ></span></b>
+    <script>
+ function text(){
+    let area = box.value
+   let count = 0;
+   let split = area.split(' ')
+    number.innerHTML = split.length;
+
+//    for (let i = 0; i < split.length; i++) {
+//                 if (split[i] != "") {
+//                     count += 1;
+//                 }
+//             }
+//         number.innerHTML = count;
+ }
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array of Objects</title>
+</head>
+<body>
+    <h1 style="text-align: center; margin-bottom: 0; color: blue;">People of Paradise</h1>
+    <table width="100%" border="1" cellpadding="10px"  style="border-collapse: collapse; background-color: aqua; 
+    border: 1px solid red;">
+        <tr>
+            <td>S/N</td>
+            <td>Name</td>
+            <td>Age</td>
+            <td>Colour</td>
+            <td>Action</td>
+        </tr>
+        <tbody id="tb"></tbody>
+    </table>
+    <script>
+        let obj = [
+        {
+        'firstname' : 'Arafah Bello',
+        'age' : '11 years old',
+        'color' : 'Green'
+    },
+    {
+        'firstname' : 'Al-Amin Bello',
+        'age' : '9 years old',
+        'color' : 'Blue'
+        
+    },
+    {
+        'firstname' : 'Aamira Bello',
+        'age' : '15 years old',
+        'color' : 'Blue And Black'
+    },
+    {
+        'firstname' : 'Akeem Chinemerem',
+        'age' : '17 years old',
+        'color' : 'yellow And Black'
+    },
+    {
+        'firstname' : 'Byeon-Woo-Seok',
+        'age' : '27 years old',
+        'color' : 'Blue And white'
+    }
+    
+        ]
+        // Loop: for, foreach, while
+        obj.forEach((elem,i)=>{
+            tb.innerHTML += `
+            <tr>
+                <td>${1+i++}</td>
+                <td>${elem['firstname']}</td>
+                <td>${elem['age']}</td>
+                <td>${elem['color']}</td>
+                <td><button>View</button></td>
+            </tr>
+            `})
+    </script>
+</body>
+</html>

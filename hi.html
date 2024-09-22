@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;  color: burlywood;"><u>Presentation</u></h1>
+    <table width="100%" border="1" cellpadding="10px" style="border-collapse: collapse; color: antiquewhite;
+     background-color: brown; border: 1px solid beige;">
+        <tr>
+        <td>S/N</td>
+        <td>Names</td>
+        <td>Age</td>
+        <td>Colour</td>
+        <td>Action</td>
+        </tr> 
+        <tbody id="tt"></tbody>
+    </table>
+    <script>
+let simba = [
+    {
+        'firstname' : 'Aamira Bello',
+        'age' : '15 years old',
+        'color' : 'Blue And Black',
+        'shoe-size' : '39'
+    },
+    {
+        'firstname' : 'Arafah Bello',
+        'age' : '11 years old',
+        'color' : 'Green'
+    },
+    {
+        'firstname' : 'Al-Amin Bello',
+        'age' : '9 years old',
+        'color' : 'Blue'
+    },
+    {
+        'firstname' : 'Byeon-Woo-Seok',
+        'age' : '27 years old',
+        'color' : 'Silver'
+    },
+    {
+        'firstname' : 'Cha-Eun-Woo',
+        'age' : '29 years old',
+        'color' : 'Burgundy'
+    }
+]
+simba.forEach((elem,i)=>{
+    tt.innerHTML +=`
+    <tr>
+        <td>${1+i++}</td>
+        <td>${elem['firstname']}</td>
+        <td>${elem['age']}</td>
+        <td>${elem['color']}</td>
+        <td><button>More Info</button></td>
+        </tr>
+    `}
+)
+    </script>
+</body>
+</html>

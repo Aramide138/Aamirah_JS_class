@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Push</title>
+</head>
+<body>
+    
+    <input type="text"  placeholder="Enter your username" id="user">
+     <input type="password"  placeholder="*****" id="pass">
+     <button onclick="clicker()">LOGIN</button>
+     <script>
+        
+         arr  = [];
+         function clicker(){
+            let username = user.value
+        let password = pass.value
+        let obj = {
+            "username" : username,
+            "password" : password,
+
+        }
+        let store =  arr.push(obj)
+       
+        // console.log(arr)
+        tbody.innerHTML = ""
+        arr.forEach((elem,i) => {
+            tbody.innerHTML += `
+                <tr>
+                    <td>${1 + i++}</td>
+                    <td>${elem['username']}</td>
+                    <td>${elem['password']}</td>
+                    <td><button>Edit</button></td>
+                   
+                </tr>
+            `
+        });
+        user.value = pass.value = ""
+        }
+     </script>
+     <br>
+     <br>
+     <br>
+     <br>
+     <table width="100%" border="1" >
+        <tr>
+            <td>S/N</td>
+            <td>Username</td>
+            <td>Password</td>
+            <td>Action</td>
+        </tr>
+        <tbody id="tbody">
+
+        </tbody>
+     </table>
+</body>
+</html>

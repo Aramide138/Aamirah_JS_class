@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.css">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body  style="background: linear-gradient(to left, maroon, beige,sandybrown);">
+<div style="display: flex;" id="form">
+    <div style="margin: auto; margin-top: 20px; width:40%; border-radius: 15px; border: 2px solid brown;
+    background-color:burlywood; padding: 20px;">
+    <b style="text-align: center; font-size: 40px; color: aliceblue; "><u>Books In Store</u></b>
+    <input type="text" placeholder="Input Name Of Book Here" style="width: 100%; margin: auto; padding: 20px; 
+    outline: none; 
+    border: 2px solid #d1d1d1;margin-top: 20px;  border-radius: 6px;" id="book">
+    <input type="number" placeholder="Input Price " style="width: 100%; padding: 20px; outline: none; 
+    border: 2px solid #d1d1d1; 
+    border-radius: 6px; margin: auto; margin-top: 15px;" id="pri">
+    <input type="number" placeholder=" Input Quantity " style="width: 100%; padding: 20px; outline: none; 
+    border: 2px solid #d1d1d1; 
+    border-radius: 6px; margin: auto; margin-top: 15px; margin-bottom: 15px;" id="quan">
+    <button style=" background-color:brown; color:wheat; padding: 20px; 
+    border: 0; font-size: 20px; cursor: pointer;" onclick="clicked()"><b>Add To Store</b></button>
+    </div>
+
+    <div style="margin: auto; margin-top: 20px; width:40%; border-radius: 15px; border: 2px solid brown;  
+    background-color:burlywood; padding: 20px;">
+    <b style="text-align: center; font-size: 40px; color: aliceblue; "><u>Books For Sale</u></b>
+    <select name="Lists Of Books" id="" style="width: 100%; margin: auto; padding: 20px; 
+    outline: none; 
+    border: 2px solid #d1d1d1;margin-top: 45px;color: black;  border-radius: 6px;"  id="bill"> 
+    <option value="0">Lists Of Books</option>
+    <option value="1">Broken By Fatima Bala </option>
+    <option value="2">She Wore Red Trainers by Na'ima B.Robert</option>
+    <option value="3">Salam With Love By Sara Sharaf</option>
+    <option value="4">Ayesha At Last By Uzma Jalaludin</option>
+    <option value="5">Love From Mecca To Medina By S.K.Ali </option>
+    <option value="6">Much Ado About Nadal By Uzma Jalaludin</option>
+    <option value="7"> Alice In Wonderland By Lewis Carol</option>
+    <option value="8">French Revolution By Thomas Carlyle</option>
+    <option value="9">The Room On The Roof By Ruskin Bond</option>
+    <option value="10">Wuthering Heights By Emily Bronte</option>
+    <option value="11">To Kill A Mocking Bird By Harper Lee</option>
+    <option value="12">Don Quixote By Miguel De Cervantes</option>
+    <option value="13">Treasure Island By Robert Louis Stevenson</option>
+    <option value="14">Little Women By Louisa May Alcott</option>
+    <option value="15">Oliver Twist By Charles Dickens</option>
+    <option value="16">Crime And Punishment By Fyodor Dostoyevsky</option>
+    <option value="17"> qq  ``  `Dracula By Bram Stoker</option>
+    <option value="18">The Return Of The King By J.R.R. Tolkien</option>
+    <option value="19">Brave New World By Aldous Huxley</option>
+    <option value="20">The Wizard Of Oz By L. Frank Baum</option>
+    <option value="21">Moby-Dick By Herman Melville</option>
+    <option value="22">Pride And Prejudice By Jane Austine</option>
+    <option value="23">The Adventures Of Huckleberry Finn By Mark Twain</option>
+    <option value="24"> Jane Eyre By Charlotte Bronte</option>
+    <option value="25">The Great Gatsby By F.Scott Fitzgerald</option>
+    <option value="26">Gulliver's Travels By Jonathan Smith</option>
+    <option value="27"> War And Peace By Leo Tolstoy</option>
+    <option value="28">The Secret Garden By Frances Hodgson Burnett</option>
+    <option value="29">The Little Prince By Antoine De Saint-Exupery</option>
+    <option value="30">Les Miserables By Victor Hugo</option>
+</select>
+<input type="number" placeholder=" Input Quantity " style="width: 100%; padding: 20px; outline: none; 
+border: 2px solid #d1d1d1; 
+border-radius: 6px; margin: auto; margin-top: 30px; margin-bottom:30px;" id="" >
+<button style=" background-color:brown; color:wheat; padding: 20px; 
+border: 0; font-size: 20px; margin-left: 20px;  margin-bottom:5px; cursor:pointer;"><b>Buy</b></button>
+</div>
+    </div>
+
+    <table width="100%" border="1" class=" table table-striped" style=" margin-top: 15px; 
+    background-color:burlywood; color:brown;">
+      <tr>
+        <td> S/N</td>
+        <td>Name Of Books</td>
+        <td>Price</td>
+        <td>Quantity</td>
+        <td onclick="go()" id="del">Action</td>
+      </tr>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    
+           <script>
+           
+       arr_users = [];
+       function clicked() {
+        let LastUsers = JSON.parse(localStorage.getItem('users'))
+           if (LastUsers) {
+           arr_users = LastUsers
+       }
+       function go(){
+            del.style.display = "none"
+            }
+       let books = book.value
+       let price = pri.value
+       let quantity = quan.value
+       let obj = {
+         "books": books,
+         "price":price,
+         "quantity":quantity
+       }
+       if(books != '' && price != '' && quantity != ''){
+        arr_users.push(obj)
+        window.localStorage.setItem('users', JSON.stringify(arr_users))
+        }
+        book.value=pri.value=quan.value=""
+        // console.log(arr_users);
+    tbody.innerHTML = ""
+       arr_users.forEach((elem,i) => {
+         tbody.innerHTML +=`
+         <option>${elem['books']}
+         <tr>
+                    <td>${1 + i++}</td>
+                    <td>${elem['books']}</td>
+                    <td>${elem['price']}</td>
+                    <td>${elem['quantity']}</td>
+                    <td><button>Delete</button></td>
+                   
+                </tr>
+            `
+        });
+    }
+    clicked()
+     function clicker(){
+  
+     }
+     </script>
+    
+</body>
+</html>

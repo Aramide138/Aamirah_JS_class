@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><b id="dew"></b></h1>
+    <script>
+        
+        const d = new Date();
+      let hr =  d.getHours()
+      if (hr < 12) {
+        dew.innerHTML = "Good-Morning"
+      }else if(hr > 11 && hr < 17){
+         dew.innerHTML = "Good-Afternoon"
+      }else if(hr > 17 && hr < 20){
+         dew.innerHTML = "Good-Evening"
+      }else{
+        dew.innerHTML = "Good-Night"
+      }
+      
+    
+    </script>
+</body>
+</html>

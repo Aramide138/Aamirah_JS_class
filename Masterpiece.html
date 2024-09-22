@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.css">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body  style="background: linear-gradient(to left, maroon, beige,sandybrown);">
+<div style="display: flex;" id="form">
+    <div style="margin: auto; margin-top: 20px; width:40%; border-radius: 15px; border: 2px solid brown;
+    background-color:burlywood; padding: 20px;">
+    <b style="text-align: center; font-size: 40px; color: aliceblue; "><u>Books In Store</u></b>
+    <input type="text" placeholder="Input Name Of Book Here" style="width: 100%; margin: auto; padding: 20px; 
+    outline: none; 
+    border: 2px solid #d1d1d1;margin-top: 20px;  border-radius: 6px;" id="book">
+    <input type="number" placeholder="Input Price " style="width: 100%; padding: 20px; outline: none; 
+    border: 2px solid #d1d1d1; 
+    border-radius: 6px; margin: auto; margin-top: 15px;" id="pri">
+    <input type="number" placeholder=" Input Quantity " style="width: 100%; padding: 20px; outline: none; 
+    border: 2px solid #d1d1d1; 
+    border-radius: 6px; margin: auto; margin-top: 15px; margin-bottom: 15px;" id="quan">
+    <button style=" background-color:brown; color:wheat; padding: 20px; 
+    border: 0; font-size: 20px; cursor: pointer;" onclick="clicked()"><b>Add To Store</b></button>
+    </div>
+
+    <div style="margin: auto; margin-top: 20px; width:40%; border-radius: 15px; border: 2px solid brown;  
+    background-color:burlywood; padding: 20px;">
+    <b style="text-align: center; font-size: 40px; color: aliceblue; "><u>Books For Sale</u></b>
+    <select name="Lists Of Books" style="width: 100%; margin: auto; padding: 20px; 
+    outline: none; 
+    border: 2px solid #d1d1d1;margin-top: 45px;color: black;  border-radius: 6px;"  id="bill" > 
+    </select>
+<input type="number" placeholder=" Input Quantity " style="width: 100%; padding: 20px; outline: none; 
+border: 2px solid #d1d1d1; 
+border-radius: 6px; margin: auto; margin-top: 30px; margin-bottom:30px;" id="quant" >
+<button style=" background-color:brown; color:wheat; padding: 20px; 
+border: 0; font-size: 20px; margin-left: 20px;  margin-bottom:5px; cursor:pointer;" id="thy" onclick="Buy()"><b>Buy</b></button>
+</div>
+    </div>
+
+    <table width="100%" border="1" class=" table table-striped" style=" margin-top: 15px; 
+    background-color:burlywood; color:brown;">
+      <tr>
+        <td> S/N</td>
+        <td>Name Of Books</td>
+        <td>Price</td>
+        <td>Quantity</td>
+        <td>Action</td>
+      </tr>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    
+           <script>
+           
+       arr_users = [];
+       function clicked() {
+        let LastUsers = JSON.parse(localStorage.getItem('users'))
+           if (LastUsers) {
+           arr_users = LastUsers
+       }
+       
+       let books = book.value
+       let price = pri.value
+       let quantity = quan.value
+       let obj = {
+         "books": books,
+         "price":price,
+         "quantity":quantity
+       }
+       if(books != '' && price != '' && quantity != ''){
+        arr_users.push(obj)
+        window.localStorage.setItem('users', JSON.stringify(arr_users))
+        }
+        book.value=pri.value=quan.value=""
+        // console.log(arr_users);
+    tbody.innerHTML = ""
+       arr_users.forEach((elem,i) => {
+         tbody.innerHTML +=`
+         <tr>
+                    <td>${1 + i++}</td>
+                    <td>${elem['books']}</td>
+                    <td>${elem['price']}</td>
+                    <td>${elem['quantity']}</td>
+                    <td onclick='Delete(${i-1})'><button>Delete</button></td>
+                   
+                </tr>
+            `
+        });
+        booksDisplay()
+    }
+    clicked()
+     function booksDisplay(){
+        bill.innerHTML = "empty"
+        arr_users.forEach((elem,i) => {
+            bill.innerHTML += `
+             <option>${elem['books']}</option>
+            `
+        });
+     }
+     booksDisplay()
+     const Delete = (id)=>{
+        let LastUsers = JSON.parse(localStorage.getItem('users'))
+
+        LastUsers.splice(id,1)
+        window.localStorage.setItem('users', JSON.stringify(LastUsers))
+        clicked()
+     }
+     const Buy = ()=>{
+        let bookName = bill.value
+        let bookQuantity = quant.value
+
+        let allBooks = JSON.parse(localStorage.getItem('users'))
+        allBooks.forEach((row, i)=>{
+            if (row.books === bookName) {
+                if (row.quantity < 1) {
+                    alert('Book Is Sold Out')
+                }
+                else{
+                row.quantity = row.quantity - bookQuantity
+        window.localStorage.setItem('users', JSON.stringify(allBooks))
+       
+                }
+            }
+        })
+      clicked()
+      if (book.value === tbody.innerHTML) {
+        alert('Book Is Not Available')
+      }
+      
+     }
+    
+     </script>
+    
+</body>
+</html>

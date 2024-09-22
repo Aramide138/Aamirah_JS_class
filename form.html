@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Form Validation</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .form{
+            width: 50%;
+            border: 1px solid red;
+            padding: 20px;
+            margin: auto;
+
+        }
+        .form-control{
+            width: 100%;
+            padding: 20px;
+            outline: none;
+            border: 1px solid #d1d1d1;
+            border-radius: 4px;
+        }
+        label{
+            margin-top: 20px;
+            display: block;
+            font-weight: bold;
+        }
+        .btn{
+            margin-top: 20px;
+            background-color: blue;
+            color: white;
+            padding: 20px;
+            border: 0;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>''
+     <div class="form">
+        <label for="">Username</label>
+        <input type="text" class="form-control" placeholder="Enter your username" id="username">
+        <span style="color: red;" id="userErr"></span>
+
+        <label for="">Password</label>
+        <input type="password" class="form-control" placeholder="*****" id="password">
+        <button class="btn" onclick="show()">Submit</button>
+     </div>
+
+     <script>
+         function show(params) {
+            let user = username.value
+            let pass = password.value
+            
+            if (user.length < 1) {
+                // alert('')
+                userErr.innerHTML = "Username cannot be empty"
+            }
+        }
+     </script>
+</body>
+</html>

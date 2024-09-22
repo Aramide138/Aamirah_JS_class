@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .form{
+            width: 50%;
+            border: 2px solid black;
+            padding: 20px;
+            margin: auto;
+
+        }
+        .form-control{
+            width: 100%;
+            padding: 20px;
+            outline: none;
+            border: 2px solid #d1d1d1;
+            border-radius: 6px;
+        }
+        label{
+            margin-top: 20px;
+            display: block;
+            font-weight: bold;
+        }
+        .btn{
+            margin-top: 20px;
+            background-color: blue;
+            color: white;
+            padding: 20px;
+            border: 0;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <label for="">Username</label>
+        <input type="text" class="form-control" onclick="change()" onkeydown="least()" 
+        onmouseleave="undo()" placeholder="Enter your username" id="username">
+        <span style="color:red;" id="userErr"></span>
+
+        <label for="">Password</label>
+        <input type="password" class="form-control" onclick="go()" onmouseleave="redo()" 
+        placeholder="*****" id="password">
+         <span style="color:red; display: block;" id="passErr"></span>
+        <button class="btn" onclick="show()">Login</button>
+     </div>
+     <script>
+         
+         function change(){
+             username.style.border = " 2px solid ash"
+            }
+            function go(){
+                password.style.border = "2px solid ash"
+            }
+            function undo(){
+                username.style.border = "2px solid #d1d1d1"
+            }
+            function redo(){
+                password.style.border = "2px solid #d1d1d1"
+            }
+            function least(){
+                let user = username.value
+
+               if(user.length<6){
+                userErr.innerHTML = "Username must be atleast 5 characters"
+               }else{
+                userErr.innerHTML = ""
+               }
+            }
+               
+               function lost() {
+                let pass = password.value
+               if(pass.length<6){
+                passErr.innerHTML = "Password must be atleast 5 characters"
+              
+               }else{
+                passErr.innerHTML = ""
+               }
+        }
+
+         function show(params) {     
+        let user = username.value
+        let Pass = password.value
+        if(user.length<1) {
+            userErr.innerHTML = "Username cannot be empty"
+            
+        }
+        else if(user == "aamira" && Pass == "mira123") {
+            window.location.assign('free.html')
+         }else{
+            userErr.innerHTML = "Username Is Incorrect!"
+            username.style.border = " 2px solid red"
+            password.style.border = "2px solid red"
+            passErr.innerHTML = "Password Is Incorrect!"
+
+         }
+         
+         
+         }
+        </script>
+         
+</body>
+</html>

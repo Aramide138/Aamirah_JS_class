@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="margin: auto; width: 10%; border: 2px solid black ; background-color: black; padding: 20px; border-radius: 10%;">
+<button  id="red" style="background-color: red; padding:50px; height: 70px;   
+border-radius: 60%; width: 70px; display: block; margin: auto; border: 3px solid red; margin-bottom: 10px;"></button>
+<button id="yellow" style="background-color:white; padding:50px; height: 70px; 
+ border-radius: 60%; width: 70px; display: block; margin: auto; border: 3px solid yellow; margin-bottom: 10px;"></button>
+<button id="green" style="background-color: white; padding:50px; height: 70px;
+  border-radius: 60%; width: 70px; display: block; margin: auto; border: 3px solid green;"></button>       
+    </div>
+    <div style="margin: auto; width:1%; border: 2px solid black; height:400px; background-color: black;"></div>
+    <div style="margin: auto; width:15%; border: 8px solid black; "></div> 
+  
+    <script>
+    setInterval(loop,10000)
+    function loop(){
+        setTimeout(toYellow,2000);
+  function toYellow(){
+      yellow.style.backgroundColor = "yellow"
+      green.style.backgroundColor = "white"
+      red.style.backgroundColor = "white"
+       }
+
+   setTimeout(togreen,5000);
+  function togreen(){
+    yellow.style.backgroundColor = "white"
+    green.style.backgroundColor = "green"
+    red.style.backgroundColor = "white"
+   }
+
+  setTimeout(tored,9000);
+  function tored(){
+    yellow.style.backgroundColor = "white"
+    green.style.backgroundColor = "white"
+    red.style.backgroundColor = "red"
+     }
+     
+    }
+    loop()
+    
+    </script>
+</body>
+</html>

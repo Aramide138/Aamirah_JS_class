@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+    
+    <button onmouseover="Msg()" onmouseleave="Out()" id="btn" style="padding: 20px; background-color: aqua; border: 0; display: block; 
+    margin: auto; cursor: pointer;">Click here!</button>
+    
+
+    <h1 id="lorem" style="display: none;">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate ea quas, quod dolore placeat consequuntur deserunt commodi, soluta tempore vitae, sapiente aspernatur voluptatibus itaque dolor suscipit vel provident rem labore.
+    </h1>
+
+    <img onmouseover="Change()" onmouseout="go()" src="IMAGES/skeleton.jpg" alt="" id="imag">
+    <script>
+        function Msg(){
+            // alert('Aamira is an amateur!')
+            btn.style.backgroundColor = "red"
+            lorem.style.display = 'block'
+        }
+        function Out() {
+            // alert('Aamira is not an amateur!')
+            btn.style.backgroundColor = "aqua"
+            lorem.style.display = 'none'
+
+        }
+        const Change = ()=>{
+
+            imag.src = "images/skeleton.jpg"
+        }
+        const go = ()=>{
+            imag.src = "images/dab.jpg"
+        }
+    </script>
+</body>
+</html>
